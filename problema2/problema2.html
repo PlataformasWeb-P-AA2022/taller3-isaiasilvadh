@@ -1,42 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>jQuery UI Datepicker - Default functionality</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
   <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
   <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
+  <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
   <script>
-  $( function() {
-    $( "#datepicker" ).datepicker();
-  } );
+    $(function () {
+      $("#datepicker").datepicker();
+    });
   </script>
 </head>
+
 <body>
-  <p>Nombre</p>
-  <input type="text" id="Nombre">
+  <div id="caja">
 
-  <p>Apellido</p>
-  <input type="text" id="Apellido">
+    <div>
+      <h2>Nombre</h2>
+      <input type="text" id="Nombre">
 
-  <p>Fecha</p>
-  <input type="text" id="datepicker"><br><br>
+      <h2>Apellido</h2>
+      <input type="text" id="Apellido">
 
-  <button name="boton" onclick="mensaje()">Generar Mensaje</button>
+      <h2>Fecha</h2>
+      <input type="text" id="datepicker"><br><br>
 
-<script>
-  function mensaje(){
-    console.log(document.getElementById("Nombre").value)
-    console.log(document.getElementById("Apellido").value)
-    console.log(document.getElementById("datepicker").value)
-  }
-</script>
+      <button id="boton" onclick="mensaje()">Generar Mensaje</button>
 
- 
+    </div>
+    <div>
+      <h3 id="datos"></h3>
+      <h3 id="nom"></h3>
+      <h3 id="ap"></h3>
+      <h3 id="fec"></h3>
+    </div>
+
+  </div>
+
+  <script>
+    function mensaje() {
+      console.log(document.getElementById("Nombre").value)
+      console.log(document.getElementById("Apellido").value)
+      console.log(document.getElementById("datepicker").value)
+
+      document.getElementById('datos').append("Datos Ingresados")
+      document.getElementById('nom').append(document.getElementById("Nombre").value)
+      document.getElementById('ap').append(document.getElementById("Apellido").value)
+      document.getElementById('fec').append(document.getElementById("datepicker").value)
 
 
- 
+    } 
+  </script>
+
+  </div>
+
 </body>
+
 </html>
