@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Problema3</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link rel="stylesheet" href="estilos/estilos.css" type="text/css" />
+</head>
+
+<body>
+    <h1>Problema 3</h1>
+    <p id="mensajeFinal">
+    </p>
+    <div id="caja">
+        <pre class="cldr"><b>CLDR display name</b><br></pre>
+        <pre class="capi"><b>Capital</b><br></pre>
+        <pre class="fips"><b>FIPS</b><br></pre>
+        <pre class="fifa"><b>FIFA</b><br></pre>
+        <pre class="conti"><b>Contintent</b><br></pre>
+        <pre class="leng"><b>Languages</b><br></pre>
+        <pre class="geoid"><b>Geoname ID</b><br></pre>
+        <pre class="ds"><b>DS</b><br></pre>
+
+    </div>
+
+</body>
+<script>
+    $(document).ready(function () {
+        var url = "https://pkgstore.datahub.io/core/country-codes/country-codes_json/data/616b1fb83cbfd4eb6d9e7d52924bb00a/country-codes_json.json";
+
+        $.ajax({
+            dataType: 'json',
+            url: url
+        }).then(function (datos) {
+
+            for (var i = 0; i < datos.length; i++) {
+                $(".cldr").append(datos[i]["CLDR display name"] + "\n")
+                $(".capi").append(datos[i]["Capital"] + "\n")
+                $(".fips").append(datos[i]["FIPS"] + "\n")
+                $(".fifa").append(datos[i]["FIFA"] + "\n")
+                $(".conti").append(datos[i]["Continent"] + "\n")
+                $(".leng").append(datos[i]["Languages"] + "\n")
+                $(".geoid").append(datos[i]["Geoname ID"] + "\n")
+                $(".ds").append(datos[i]["DS"] + "\n")
+
+            }
+        })
+
+    });
+
+</script>
+</html>
